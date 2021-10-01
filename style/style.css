@@ -1,0 +1,16 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+label{
+    display: block;
+    margin: 0 0 4px 0;
+}
+
+label:hover{
+    cursor: pointer;
+}
+
+fieldset legend{
+    font-weight: 700;
+}

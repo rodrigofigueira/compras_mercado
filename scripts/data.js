@@ -32,6 +32,7 @@ const data = [
             "Amaciante",
             "Cândida",
             "Álcool",
+            "Sabão em pó"
         ]
     },
 ];

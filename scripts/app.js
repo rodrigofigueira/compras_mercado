@@ -3,7 +3,7 @@ data.forEach(element => {
     let checkboxes = '';
 
     element.itens.forEach(item =>{
-        checkboxes += `<input type="checkbox">${item}<br>`;      
+        checkboxes += `<label><input type="checkbox">${item}</label>`;      
     });
 
     let template = `<fieldset>      
