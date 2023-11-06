@@ -1,3 +1,13 @@
+const btnOcultarItensNaoSelecionados = document.querySelector('#ocultarItensNaoSelecionados');
+
+btnOcultarItensNaoSelecionados.addEventListener('click', function(){
+    const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+    checkboxes.forEach(e => {
+        if(!e.checked)
+            e.parentElement.style.display = 'none';
+    });
+});
+
 data.forEach(element => {
     
     let checkboxes = '';
@@ -11,6 +21,6 @@ data.forEach(element => {
                         ${checkboxes}
                     </fieldset>`;
 
-    document.body.innerHTML += template;                    
+    document.querySelector('#itens').innerHTML += template;
 
 });
