@@ -8,19 +8,39 @@ btnOcultarItensNaoSelecionados.addEventListener('click', function(){
     });
 });
 
-data.forEach(element => {
-    
-    let checkboxes = '';
+function marcarItem(a, b){
+    data[a].itens[b].selected = !data[a].itens[b].selected;
+}
 
-    element.itens.forEach(item =>{
-        checkboxes += `<label><input type="checkbox">${item}</label>`;      
+function popularItens(){
+
+    document.querySelector('#itens').innerHTML = '';
+
+    data.forEach((element, indexLocal) => {
+        
+        let checkboxes = '';
+
+        element.itens.forEach((item, indexItem) =>{
+
+            item.selected = false;
+
+            checkboxes += `<label>
+                                <input type="checkbox" 
+                                onclick='marcarItem(${indexLocal}, ${indexItem})'
+                                >${item.name}</label>`;      
+        });
+
+        let template = `<fieldset>      
+                            <legend>${element.local}</legend> 
+                            ${checkboxes}
+                        </fieldset>`;
+
+        document.querySelector('#itens').innerHTML += template;
+
     });
+}
 
-    let template = `<fieldset>      
-                        <legend>${element.local}</legend> 
-                        ${checkboxes}
-                    </fieldset>`;
+popularItens();
 
-    document.querySelector('#itens').innerHTML += template;
 
-});
+document.querySelector('#resetarItens').addEventListener('click', _ => popularItens());
